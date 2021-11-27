@@ -1,11 +1,23 @@
 import "../styles/globals.css";
-import type { AppProps } from "next/app";
 import { AuthStore } from "../stores/auth";
+import { DefaultLayout } from "../components/layouts/default/default";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: any) {
+
+  const Layout = (child: any) => {
+    switch (Component.layout) {
+      case "special":
+        return child
+      default:
+        return <DefaultLayout>
+        {child}
+      </DefaultLayout>
+    }
+  }
+
   return (
     <AuthStore.Provider>
-      <Component {...pageProps} />
+      {Layout(<Component {...pageProps} />)}
     </AuthStore.Provider>
   );
 }

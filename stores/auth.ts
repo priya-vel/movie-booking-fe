@@ -2,11 +2,7 @@ import { useState } from "react";
 import { createContainer } from "unstated-next";
 
 const Auth = () => {
-  const [user, setUser] = useState({
-    email: "",
-    name: "",
-    type: ""
-  });
+  const [user, setUser] = useState(null);
   const [form, setForm] = useState({
     email: "",
     name: "",

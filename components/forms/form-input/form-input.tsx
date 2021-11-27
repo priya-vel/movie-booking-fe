@@ -16,6 +16,7 @@ export const FormInput: FC<FormInputProps> = (_props) => {
     <div className={style.FormInput}>
       <label htmlFor={_props.id}>{_props.label}</label>
       <input
+        pattern={_props.pattern}
         value={_props.value}
         onChange={(e) => _props.onChange(e.target.value)}
         id={_props.id}
