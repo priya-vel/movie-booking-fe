@@ -1,4 +1,4 @@
-import { FC, useMemo, useState } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import { AuthStore } from "../../../stores/auth";
 import { Btn } from "../../ui/btn/btn";
 import { FormInput } from "../form-input/form-input";
@@ -27,6 +27,17 @@ export const AuthForm: FC<AuthFormProps> = (props) => {
       authStore.register();
     }
   };
+
+  useEffect(() => {
+    return () => {
+      authStore.setForm({
+        email: '',
+        name: '',
+        password: '',
+        type: 'user'
+      })
+    }
+  },[])
 
   return (
     <form

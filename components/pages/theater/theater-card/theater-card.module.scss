@@ -1,0 +1,18 @@
+.theaterCard {
+    background: #fff;
+    min-height: 130px;
+    padding: 15px;
+    border-radius: 4px;
+    display: grid;
+    transition: .3s;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 0 1px rgba(128, 128, 128, 0.356);
+    span {
+        align-items: center;
+        text-align: center;
+    }
+    &:hover {
+        box-shadow: 0 0 10px 0 rgba(128, 128, 128, 0.356);
+    }
+}

@@ -13,4 +13,10 @@ a {
 
 * {
   box-sizing: border-box;
+  --container-width: 900px;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0px auto;
 }

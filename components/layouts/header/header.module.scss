@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  padding: 10px;
+  box-shadow: 0 0 3px 0px grey;
+  h1 {
+    margin: 0px;
+    padding-left: 10px;
+    font-size: 18px;
+    flex: 1;
+  }
+  img {
+    height: 30px;
+  }
+  nav {
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+    ul {
+      display: flex;
+      padding: 0px;
+      margin: 0px;
+      align-items: center;
+      li {
+        list-style: none;
+        a {
+          display: inline-block;
+          padding: 5px 10px;
+        }
+        .logout {
+            padding: 5px 8px;
+            border: 0px;
+            color: #fff;
+            outline: none;
+            cursor: pointer;
+            background: rgb(108, 171, 255);
+        }
+      }
+    }
+  }
+}

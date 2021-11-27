@@ -13,7 +13,7 @@ const Home: NextPage = () => {
       </Head>
       <AuthGuard>
         <main className={styles.main}>
-          <h1>Please Login to use the app</h1>
+          <h1>Home Page</h1>
         </main>
       </AuthGuard>
     </div>
