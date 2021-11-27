@@ -1,16 +1,73 @@
-import { FC } from "react";
+import { FC, useMemo, useState } from "react";
 import { AuthStore } from "../../../stores/auth";
+import { Btn } from "../../ui/btn/btn";
+import { FormInput } from "../form-input/form-input";
 import style from "./auth-form.module.scss";
 
 export interface AuthFormProps {
-  type: "login" | "register"
+  type: "login" | "register";
 }
 
 export const AuthForm: FC<AuthFormProps> = (props) => {
+  const [formType, setFormType] = useState(props.type as "login" | "register");
   const authStore = AuthStore.useContainer();
+  const title = {
+    login: "Login",
+    register: "Register",
+  };
+  const btn = {
+    login: "Login",
+    register: "Register",
+  };
   return (
-  <div className={style.authForm}>
+    <form className={style.authForm}>
+      <h1>{title[formType]}</h1>
 
-  </div>
+      <div>
+        <FormInput
+          value={authStore.form.email}
+          placeHolder={"Email"}
+          label={"Email"}
+          id="email"
+          required
+          onChange={(e) => authStore.setForm({ ...authStore.form, email: e })}
+        />
+        { formType != "login" ? <FormInput
+          id="name"
+          value={authStore.form.name}
+          placeHolder={"User Name"}
+          label={"User Name"}
+          required
+          onChange={(e) => authStore.setForm({ ...authStore.form, name: e })}
+        /> : <></> }
+        <FormInput
+          required
+          id="password"
+          value={authStore.form.password}
+          placeHolder={"Password"}
+          label={"Password"}
+          type="password"
+          onChange={(e) =>
+            authStore.setForm({ ...authStore.form, password: e })
+          }
+        />
+      </div>
+
+      <div className={style.helper}>
+        {formType == "login" ? (
+          <div>
+            don't have an account?{" "}
+            <span className={style.link} onClick={() => setFormType("register")}>register</span>
+          </div>
+        ) : (
+          <div>
+            already have an account?{" "}
+            <span className={style.link} onClick={() => setFormType("login")}>login</span>
+          </div>
+        )}
+      </div>
+
+      <Btn block type="submit">{btn[formType]}</Btn>
+    </form>
   );
 };

@@ -12,7 +12,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <AuthGuard>
-        <main className={styles.main}></main>
+        <main className={styles.main}>
+          <h1>Please Login to use the app</h1>
+        </main>
       </AuthGuard>
     </div>
   );
