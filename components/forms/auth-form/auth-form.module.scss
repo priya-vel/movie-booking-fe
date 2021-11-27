@@ -10,4 +10,11 @@
         color: blue;
         cursor: pointer;
     }
+    select {
+        border: none;
+        background: #fff;
+        border-radius: 4px;
+        margin-left: 10px;
+        box-shadow: 0 0 0 2px grey;
+    }
 }

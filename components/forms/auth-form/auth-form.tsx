@@ -19,8 +19,23 @@ export const AuthForm: FC<AuthFormProps> = (props) => {
     login: "Login",
     register: "Register",
   };
+
+  const submitHandle = () => {
+    if (formType == "login") {
+      authStore.login();
+    } else {
+      authStore.register();
+    }
+  };
+
   return (
-    <form className={style.authForm}>
+    <form
+      className={style.authForm}
+      onSubmit={(e) => {
+        e.preventDefault();
+        submitHandle();
+      }}
+    >
       <h1>{title[formType]}</h1>
 
       <div>
@@ -32,14 +47,18 @@ export const AuthForm: FC<AuthFormProps> = (props) => {
           required
           onChange={(e) => authStore.setForm({ ...authStore.form, email: e })}
         />
-        { formType != "login" ? <FormInput
-          id="name"
-          value={authStore.form.name}
-          placeHolder={"User Name"}
-          label={"User Name"}
-          required
-          onChange={(e) => authStore.setForm({ ...authStore.form, name: e })}
-        /> : <></> }
+        {formType != "login" ? (
+          <FormInput
+            id="name"
+            value={authStore.form.name}
+            placeHolder={"User Name"}
+            label={"User Name"}
+            required
+            onChange={(e) => authStore.setForm({ ...authStore.form, name: e })}
+          />
+        ) : (
+          <></>
+        )}
         <FormInput
           required
           id="password"
@@ -52,22 +71,51 @@ export const AuthForm: FC<AuthFormProps> = (props) => {
           }
         />
       </div>
+      {formType == "register" ? (
+        <div>
+          <label className={style.userType}>User Type: </label>
+          <select
+            name="type"
+            id="type"
+            onChange={(e) => {
+              authStore.setForm({ ...authStore.form, type: e.target.value });
+            }}
+          >
+            {["user", "owner"].map((el, i) => (
+              <option key={i} value={el}>
+                {el}
+              </option>
+            ))}
+          </select>
+        </div>
+      ) : (
+        <></>
+      )}
 
       <div className={style.helper}>
         {formType == "login" ? (
           <div>
             don't have an account?{" "}
-            <span className={style.link} onClick={() => setFormType("register")}>register</span>
+            <span
+              className={style.link}
+              onClick={() => setFormType("register")}
+            >
+              register
+            </span>
           </div>
         ) : (
           <div>
             already have an account?{" "}
-            <span className={style.link} onClick={() => setFormType("login")}>login</span>
+            <span className={style.link} onClick={() => setFormType("login")}>
+              login
+            </span>
           </div>
         )}
       </div>
 
-      <Btn block type="submit">{btn[formType]}</Btn>
+      <Btn block type="submit">
+        {btn[formType]}
+      </Btn>
     </form>
   );
 };
