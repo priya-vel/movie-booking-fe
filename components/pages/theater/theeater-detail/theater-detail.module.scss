@@ -1,5 +1,38 @@
 .theaterDetailGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    grid-gap: 1em;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-gap: 1em;
+}
+
+.newTheater {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  svg {
+    margin: 0 auto;
+  }
+}
+
+.newShow {
+  height: 100%;
+  display: grid;
+  align-items: center;
+  background: #fff;
+  min-height: 130px;
+  padding: 15px;
+  border-radius: 4px;
+  display: grid;
+  transition: 0.3s;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px rgba(128, 128, 128, 0.356);
+  span {
+    align-items: center;
+    text-align: center;
+  }
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 10px 0 rgba(128, 128, 128, 0.356);
+  }
 }

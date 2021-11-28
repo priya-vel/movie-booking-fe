@@ -1,9 +1,11 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { EditIcon } from "../icon/edit";
 import { StarIcon } from "../icon/star";
 import Link from "next/link";
 import style from "./show-card.module.scss";
 import { AuthStore } from "../../../stores/auth";
+import { Model } from "../model/model";
+import { ShowForm } from "../../forms/show-form/show-form";
 
 interface ShowCardProps {
   _id: string;
@@ -14,6 +16,7 @@ interface ShowCardProps {
   theater: string;
   owner: string;
   banner: string;
+  onEdit?: () => void;
 }
 
 export const ShowCard: FC<ShowCardProps> = (props) => {
@@ -28,7 +31,7 @@ export const ShowCard: FC<ShowCardProps> = (props) => {
           }}
         >
           <div style={{ flex: 1 }}></div>
-          <button onClick={() => {}} className={style.editBtn}>
+          <button onClick={() => !!props.onEdit ? props.onEdit() : ""} className={style.editBtn}>
             <EditIcon />
           </button>
         </div>
@@ -54,10 +57,8 @@ export const ShowCard: FC<ShowCardProps> = (props) => {
         </div>
         <hr />
         <div className={style.description}>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus,
-          possimus? Provident exercitationem itaque doloremque harum, explicabo
-          placeat reiciendis ipsam accusamus.
-        </div>
+          
+          </div>
       </div>
     </div>
   );

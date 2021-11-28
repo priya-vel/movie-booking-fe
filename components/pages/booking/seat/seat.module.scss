@@ -17,7 +17,21 @@
     }
     &:disabled {
         cursor: disabled;
+        cursor: not-allowed;
         background: rgb(131, 131, 131);
+    }
+
+    &--booked {
+        cursor: not-allowed;
+        background: rgb(179, 179, 179);
+        .booked {
+            background: rgb(255, 0, 55);
+            color: #fff;
+            font-size: 10px;
+            padding: 2px;
+            position: absolute;
+            transform: translateX(-10px) rotateZ(-45deg);
+        }
     }
 
     .vipSticker {

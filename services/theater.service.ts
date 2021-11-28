@@ -16,6 +16,9 @@ class Theater extends HttpClient {
   async updateName(id: string, name: string) {
     return this.httpClient.put(`/theater/${id}`, {name});
   }
+  async getShows(id: string) {
+    return this.httpClient.get(`/theater/${id}/shows`)
+  }
 }
 
 export const TheaterService = new Theater();

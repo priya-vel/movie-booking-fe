@@ -1,0 +1,10 @@
+.bookingCard {
+    display: grid;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px grey;
+    grid-template-columns: 100px auto;
+    .text {
+        padding: 5px;
+    }
+}

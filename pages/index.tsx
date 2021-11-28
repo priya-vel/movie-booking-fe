@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { AuthGuard } from "../components/middlewares/authGuard";
+import { HomeComponent } from "../components/pages/home/home";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -12,8 +13,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <AuthGuard>
-        <main className={styles.main}>
-          <h1>Home Page</h1>
+        <main className="container">
+          <HomeComponent />
         </main>
       </AuthGuard>
     </div>

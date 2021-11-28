@@ -6,7 +6,6 @@ import { AuthStore } from "../../../stores/auth";
 export const Header: FC = () => {
   const links = [
     { label: "home", path: "/" },
-    { label: "Theater", path: "/theater/" },
   ];
   const auth = AuthStore.useContainer();
   return (
@@ -29,8 +28,13 @@ export const Header: FC = () => {
               </Link>
             </li>
           ))}
+          {!!auth.user && auth.user.type == "owner" && <li >
+            <Link href={'/theater/'}>
+            My Theater
+            </Link>
+          </li>}
           {!!auth.user && <li >
-            <Link href={'/my-shows'}>
+            <Link href={'/my-bookings'}>
               <a>My Bookings</a>
             </Link>
           </li> }

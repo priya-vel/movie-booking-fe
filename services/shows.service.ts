@@ -10,8 +10,20 @@ class Shows extends HttpClient {
     time: string;
     poster: string;
     theaater: string;
-  }) {
-    return this.httpClient.post(`/theater`, body);
+  } | any) {
+    return this.httpClient.post(`/show`, body);
+  }
+  update(id: any, body: any) {
+    return this.httpClient.put(`/show/${id}`, body)
+  }
+  getOne(id: string) {
+    return this.httpClient.get(`/show/${id}`)
+  }
+  getAll() {
+    return this.httpClient.get(`/show`)
+  }
+  booking(id: string) {
+    return this.httpClient.put(`/show/${id}/book`)
   }
 }
 

@@ -1,6 +1,7 @@
 import { FC } from "react";
 import style from "./theater-card.module.scss";
 import Link from 'next/link';
+import { Url } from "url";
 
 interface TheaterCardProps {
     name?: string

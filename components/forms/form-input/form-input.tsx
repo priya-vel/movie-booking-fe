@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Btn } from "../../ui/btn/btn";
 import { EyeIcon } from "../../ui/icon/eye";
 import { EyeCloseIcon } from "../../ui/icon/eye-close";
@@ -13,11 +13,17 @@ export interface FormInputProps {
   pattern?: string;
   id?: string;
   required?: boolean;
-  type?: "password" | "email" | "text" | "number";
+  type?: "password" | "email" | "text" | "number" | "date" | "time";
 }
 
 export const FormInput: FC<FormInputProps> = (_props) => {
   const [type, setType] = useState(_props.type);
+  // const [value, setValue] = useState(_props.value);
+  // useEffect(() => {
+  //   return () => {
+      
+  //   }
+  // }, [])
   return (
     <div className={style.formInput}>
       <label htmlFor={_props.id}>{_props.label}</label>

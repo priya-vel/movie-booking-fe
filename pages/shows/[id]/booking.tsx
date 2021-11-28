@@ -6,7 +6,7 @@ const BookingPage = () => {
     return (
         <div className="container">
             <h1>Booking {router.query.id}</h1>
-            <Booking />
+            {/* <Booking /> */}
         </div>
     )
 }
