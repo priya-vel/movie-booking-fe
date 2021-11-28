@@ -106,7 +106,7 @@ export const AuthForm: FC<AuthFormProps> = (props) => {
       <div className={style.helper}>
         {formType == "login" ? (
           <div>
-            don't have an account?{" "}
+            dont have an account?{" "}
             <span
               className={style.link}
               onClick={() => setFormType("register")}
