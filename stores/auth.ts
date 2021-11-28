@@ -9,6 +9,7 @@ import { encryptSha512 } from "../util/encrypt";
 const Auth = () => {
   const router = useRouter();
   const [user, setUser] = useState(null as null | {
+    _id: string,
     email: string,
     name: string,
     type: "user" | "owner"

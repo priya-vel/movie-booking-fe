@@ -6,7 +6,9 @@ import { AuthForm } from "../forms/auth-form/auth-form";
 export const AuthGuard: FC = (_props) => {
   const authStore = AuthStore.useContainer();
   useEffect(() => {
-    authStore.getProfile().catch((err) => console.error(err));
+    if (!!!authStore.user) {
+      authStore.getProfile().catch((err) => console.error(err));
+    }
   }, []);
   return !!authStore.user ? (
     <div>{_props.children}</div>

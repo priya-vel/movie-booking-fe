@@ -1,0 +1,32 @@
+.seat {
+    padding: 12px;
+    padding-left: 10px;
+    background: #f1f1f1;
+    border-radius: 2px;
+    font-size: 12px;
+    cursor: pointer;
+    border: 0px;
+    text-align: center;
+    position: relative;
+    &:focus {
+        box-shadow: 0 0 0 2px rgba(0, 255, 234, 0.692);
+    }
+
+    &:hover {
+        background: #c9c9c9;
+    }
+    &:disabled {
+        cursor: disabled;
+        background: rgb(131, 131, 131);
+    }
+
+    .vipSticker {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        font-size: 8px;
+        background: rgb(255, 46, 46);
+        color: #fff;
+    }
+}

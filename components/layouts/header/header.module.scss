@@ -4,6 +4,10 @@
   font-size: 1em;
   padding: 10px;
   box-shadow: 0 0 3px 0px grey;
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+  background: #fff;
   h1 {
     margin: 0px;
     padding-left: 10px;

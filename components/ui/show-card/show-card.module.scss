@@ -1,0 +1,46 @@
+.showCard {
+    border-radius: 4px;
+    transition: .3s;
+    overflow: hidden;
+    box-shadow: 0 0 2px 1px rgba(128, 128, 128, 0.363);
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 0 10px 1px rgba(128, 128, 128, 0.582);
+    }
+    .editBtn {
+        cursor: pointer;
+        background: #fff;
+        border: 1px solid gray;
+    }
+    .banner {
+        height: 330px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+    }
+    .text {
+        padding: 10px;
+        h4 {
+            margin: 0px;
+        }
+        .ratingDiv {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            svg {
+                height: 18px;
+            }
+            .rating {
+                flex: 1;
+            }
+            .ratingCount {
+                display: flex;
+                align-items: center;
+            }
+        }
+        .description {
+            text-align: justify;
+            font-size: 14px;
+        }
+    }
+}

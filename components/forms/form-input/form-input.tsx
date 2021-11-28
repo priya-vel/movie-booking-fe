@@ -6,6 +6,7 @@ import style from "./form-input.module.scss";
 
 export interface FormInputProps {
   value: any;
+  disabled?: boolean;
   onChange: (val: any) => void;
   label?: string;
   placeHolder?: string;
@@ -16,12 +17,13 @@ export interface FormInputProps {
 }
 
 export const FormInput: FC<FormInputProps> = (_props) => {
-    const [type, setType] = useState(_props.type)
+  const [type, setType] = useState(_props.type);
   return (
     <div className={style.formInput}>
       <label htmlFor={_props.id}>{_props.label}</label>
       <div className={style.input}>
         <input
+          disabled={_props.disabled}
           required={_props.required}
           pattern={_props.pattern}
           value={_props.value}
@@ -30,13 +32,29 @@ export const FormInput: FC<FormInputProps> = (_props) => {
           placeholder={!!_props.placeHolder ? _props.placeHolder : ""}
           type={!!_props.type ? type : "text"}
         />
-        {_props.type == "password" ?<div>
-        {type == "password" ? <button className={style.icon} type="button" onClick={() => setType("text")}>
-            <EyeIcon />
-        </button> : <button className={style.icon} type="button" onClick={() => setType("password")}>
-            <EyeCloseIcon />
-        </button> }
-        </div>: ""}
+        {_props.type == "password" ? (
+          <div>
+            {type == "password" ? (
+              <button
+                className={style.icon}
+                type="button"
+                onClick={() => setType("text")}
+              >
+                <EyeIcon />
+              </button>
+            ) : (
+              <button
+                className={style.icon}
+                type="button"
+                onClick={() => setType("password")}
+              >
+                <EyeCloseIcon />
+              </button>
+            )}
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );

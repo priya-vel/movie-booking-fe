@@ -11,16 +11,17 @@ export const Theater = () => {
 
   useEffect(() => {
     TheaterService.getTheater()
-    .then(res => {
+      .then((res) => {
         setTheaters(res.data.data);
-    }).catch(err => {
-        console.error(err)
-    })
-  },[])
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
 
   return (
     <div className={style.theater}>
-      <h1>Theaters</h1>
+      <h1>Your Theaters</h1>
       <div className={style.theaterWrapper}>
         {auth.user && auth.user.type == "owner" ? (
           <TheaterCard to="/theater/new">
@@ -31,10 +32,9 @@ export const Theater = () => {
         ) : (
           <></>
         )}
-        {theaters.map((el, i) => 
-        <TheaterCard key={i} to={`/theater/${el._id}`} 
-        name={el.name} />
-        )}
+        {theaters.map((el, i) => (
+          <TheaterCard key={i} to={`/theater/${el._id}`} name={el.name} />
+        ))}
       </div>
     </div>
   );
