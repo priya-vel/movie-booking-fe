@@ -26,6 +26,7 @@ export const BookShowForm: FC<BookShowFormProps | any> = (props) => {
         console.log(res);
         props.done()
     }).catch(err => {
+      props.done()
         console.log(err);
     })
   }

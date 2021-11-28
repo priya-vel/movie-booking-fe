@@ -23,7 +23,7 @@ export const ShowCard: FC<ShowCardProps> = (props) => {
   const auth = AuthStore.useContainer();
   return (
     <div className={style.showCard}>
-      {auth.user && (
+      {auth.user && auth.user.type == "owner" && (
         <div
           style={{
             display: "flex",
