@@ -46,7 +46,8 @@ export const ShowForm: FC<ShowFormProps> = (props) => {
 
     let videoLink = String(showData.trailer)
       .replace("https://www.youtube.com/watch?v=", "")
-      .replace("https://www.youtube.com/embed/", "");
+      .replace("https://www.youtube.com/embed/", "")
+      .replace("https://youtu.be/", "");
     let body = {
       ...showData,
       trailer: videoLink,
