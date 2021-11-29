@@ -78,7 +78,7 @@ export const ShowDetail = () => {
                 Time: {td("h:MM A")}
             </div>
         </div>
-      <h1>Booking</h1>
+      <h1>Book Seats</h1>
       {!!auth.user && (
         <div>
           <Model

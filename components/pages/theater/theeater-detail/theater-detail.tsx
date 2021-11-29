@@ -125,11 +125,11 @@ export const TheaterDetail = () => {
         )}
 
         <div className={style.theaterDetailGrid}>
-          <div className={style.newShow} onClick={() => setNewShowModel(true)}>
+          {auth.user && auth.user.type == "owner" && <div className={style.newShow} onClick={() => setNewShowModel(true)}>
             <div className={style.newTheater}>
               <AddIcon /> <span>NEW</span>
             </div>
-          </div>
+          </div>}
           {shows.map((el, i) => (
             <ShowCard
               onEdit={() => {
